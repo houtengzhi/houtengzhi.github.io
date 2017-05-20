@@ -270,6 +270,157 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/Git多账号配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yechy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YECHY'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/20/Git多账号配置/" itemprop="url">
+                  Git多账号配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T20:20:22+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p><strong> 1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）</strong><br>执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填<br><code>cd C:\Users\xx\.ssh</code><br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
+<p><strong> 2. 同样的方式生产gerrit服务器的私钥公钥（邮箱地址可以相同可以不同）</strong><br>执行命令ssh-keygen -t rsa -C email，创建github对应的sshkey，命名为id_rsa_gerrit。<br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
+<p><strong> 3. 把github对应的公钥和gerrit对应的公钥上传到服务器</strong><br>略</p>
+<p><strong> 4. 在.ssh目录创建config文本文件并完成相关配置</strong><br>每个账号单独配置一个<strong>Host</strong>，每个Host要取一个别名，每个Host主要配置HostName和IdentityFile两个属性即可。</p>
+<p>Host的名字可以取为自己喜欢的名字，不过这个会影响git相关命令，例如：<br>Host mygithub 这样定义的话，命令如下，即git@后面紧跟的名字改为mygithub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@mygithub:xx/xxx.git</div></pre></td></tr></table></figure></p>
+<p>HostName 　　　　　　　   这个是真实的域名地址<br>IdentityFile 　　　　　　　  这里是id_rsa的地址<br>PreferredAuthentications   配置登录时用什么权限认证–可设为publickey,password<br>publickey,keyboard-interactive等<br>User 　　　　　　　　　　　配置使用用户名</p>
+<p>config文件配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#配置github.com</span></div><div class="line">Host github.com</div><div class="line">HostName github.com</div><div class="line">IdentityFile C:\\Users\\xx\\.ssh\\id_rsa_github</div><div class="line">User xx</div><div class="line"></div><div class="line"><span class="comment">#配置gerrit</span></div><div class="line">Host gerrit</div><div class="line">HostName 192.168.0.102</div><div class="line">IdentityFile C:\\Users\\xx\\.ssh\\id_rsa</div><div class="line">User yy</div><div class="line">KexAlgorithms +diffie-hellman-group1-sha1</div></pre></td></tr></table></figure></p>
+<p><strong> 5. 打开cmder客户端执行测试命令测试是否配置成功（会自动在.ssh目录生成known_hosts文件把私钥配置进去）</strong><br><code>ssh -T git@github.com</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/Rxjava使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -368,16 +519,12 @@
 
       
         
-          <ol>
-<li>用 RxJava 封装回调方法 CallBack<br><a href="http://www.glumes.com/wrapper-callback-by-rxjava/">http://www.glumes.com/wrapper-callback-by-rxjava/</a></li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/20/Rxjava使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<h4 id="1-用-RxJava-封装回调方法-CallBack"><a href="#1-用-RxJava-封装回调方法-CallBack" class="headerlink" title="1. 用 RxJava 封装回调方法 CallBack"></a>1. 用 RxJava 封装回调方法 CallBack</h4><p><a href="http://www.glumes.com/wrapper-callback-by-rxjava/" target="_blank" rel="external">http://www.glumes.com/wrapper-callback-by-rxjava/</a></p>
+<h4 id="2-RxJava单元测试"><a href="#2-RxJava单元测试" class="headerlink" title="2. RxJava单元测试"></a>2. RxJava单元测试</h4><p>异步变同步<br>参考 <a href="http://www.jianshu.com/p/cdfeb6c3d099#" target="_blank" rel="external">http://www.jianshu.com/p/cdfeb6c3d099#</a><br>注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。<br>RxJavaPlugins.getInstance().reset()方法在低版本RxJava中是private。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">openRxTools</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isInitRxTools) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        isInitRxTools = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">        RxAndroidSchedulersHook rxAndroidSchedulersHook = <span class="keyword">new</span> RxAndroidSchedulersHook() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getMainThreadScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        RxJavaSchedulersHook rxJavaSchedulersHook = <span class="keyword">new</span> RxJavaSchedulersHook() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getIOScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//定时器线程也需要切换到当前线程</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getComputationScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        <span class="comment">// reset()不是必要，实践中发现不写reset()，偶尔会出错，所以写上保险^_^</span></div><div class="line">        RxAndroidPlugins.getInstance().reset();</div><div class="line">        RxAndroidPlugins.getInstance().registerSchedulersHook(rxAndroidSchedulersHook);</div><div class="line">        RxJavaPlugins.getInstance().reset();</div><div class="line">        RxJavaPlugins.getInstance().registerSchedulersHook(rxJavaSchedulersHook);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -753,7 +900,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -764,7 +911,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -775,7 +922,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

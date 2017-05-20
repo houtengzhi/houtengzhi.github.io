@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/">
+<meta name="description" content="1. 用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/
+2. RxJava单元测试异步变同步参考 http://www.jianshu.com/p/cdfeb6c3d099#注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。RxJavaPlugi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rxjava使用">
 <meta property="og:url" content="http://yoursite.com/2017/05/20/Rxjava使用/index.html">
 <meta property="og:site_name" content="YECHY'S BLOG">
-<meta property="og:description" content="用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/">
-<meta property="og:updated_time" content="2017-05-20T12:13:39.442Z">
+<meta property="og:description" content="1. 用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/
+2. RxJava单元测试异步变同步参考 http://www.jianshu.com/p/cdfeb6c3d099#注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。RxJavaPlugi">
+<meta property="og:updated_time" content="2017-05-20T12:19:37.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rxjava使用">
-<meta name="twitter:description" content="用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/">
+<meta name="twitter:description" content="1. 用 RxJava 封装回调方法 CallBackhttp://www.glumes.com/wrapper-callback-by-rxjava/
+2. RxJava单元测试异步变同步参考 http://www.jianshu.com/p/cdfeb6c3d099#注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。RxJavaPlugi">
 
 
 
@@ -368,13 +371,9 @@
       
 
       
-        <ol>
-<li>用 RxJava 封装回调方法 CallBack<br><a href="http://www.glumes.com/wrapper-callback-by-rxjava/" target="_blank" rel="external">http://www.glumes.com/wrapper-callback-by-rxjava/</a></li>
-</ol>
-<a id="more"></a>
-<ol>
-<li>RxJava单元测试<br>异步变同步<br>参考 <a href="http://www.jianshu.com/p/cdfeb6c3d099#" target="_blank" rel="external">http://www.jianshu.com/p/cdfeb6c3d099#</a><br>注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。<br>RxJavaPlugins.getInstance().reset()方法在低版本RxJava中是private。</li>
-</ol>
+        <a id="more"></a>
+<h4 id="1-用-RxJava-封装回调方法-CallBack"><a href="#1-用-RxJava-封装回调方法-CallBack" class="headerlink" title="1. 用 RxJava 封装回调方法 CallBack"></a>1. 用 RxJava 封装回调方法 CallBack</h4><p><a href="http://www.glumes.com/wrapper-callback-by-rxjava/" target="_blank" rel="external">http://www.glumes.com/wrapper-callback-by-rxjava/</a></p>
+<h4 id="2-RxJava单元测试"><a href="#2-RxJava单元测试" class="headerlink" title="2. RxJava单元测试"></a>2. RxJava单元测试</h4><p>异步变同步<br>参考 <a href="http://www.jianshu.com/p/cdfeb6c3d099#" target="_blank" rel="external">http://www.jianshu.com/p/cdfeb6c3d099#</a><br>注意ComputationScheduler也需切换到当前线程，否则timer、delay操作无法测试。<br>RxJavaPlugins.getInstance().reset()方法在低版本RxJava中是private。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">openRxTools</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isInitRxTools) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        isInitRxTools = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">        RxAndroidSchedulersHook rxAndroidSchedulersHook = <span class="keyword">new</span> RxAndroidSchedulersHook() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getMainThreadScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        RxJavaSchedulersHook rxJavaSchedulersHook = <span class="keyword">new</span> RxJavaSchedulersHook() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getIOScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//定时器线程也需要切换到当前线程</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Scheduler <span class="title">getComputationScheduler</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> Schedulers.immediate();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        <span class="comment">// reset()不是必要，实践中发现不写reset()，偶尔会出错，所以写上保险^_^</span></div><div class="line">        RxAndroidPlugins.getInstance().reset();</div><div class="line">        RxAndroidPlugins.getInstance().registerSchedulersHook(rxAndroidSchedulersHook);</div><div class="line">        RxJavaPlugins.getInstance().reset();</div><div class="line">        RxJavaPlugins.getInstance().registerSchedulersHook(rxJavaSchedulersHook);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
       
     </div>
@@ -427,6 +426,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/20/Git多账号配置/" rel="prev" title="Git多账号配置">
+                Git多账号配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -472,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -488,7 +500,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -499,7 +511,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -510,7 +522,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -546,6 +558,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-用-RxJava-封装回调方法-CallBack"><span class="nav-number">1.</span> <span class="nav-text">1. 用 RxJava 封装回调方法 CallBack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-RxJava单元测试"><span class="nav-number">2.</span> <span class="nav-text">2. RxJava单元测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
