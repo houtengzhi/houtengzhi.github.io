@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填cd C:\Users\xx\.sshssh-keygen -t rsa -C xxx@xxx.com
- 2. 同样的方式生产gerrit服务器的私钥公钥">
+<meta name="description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git多账号配置">
 <meta property="og:url" content="http://yoursite.com/2017/05/20/Git多账号配置/index.html">
 <meta property="og:site_name" content="YECHY'S BLOG">
-<meta property="og:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填cd C:\Users\xx\.sshssh-keygen -t rsa -C xxx@xxx.com
- 2. 同样的方式生产gerrit服务器的私钥公钥">
-<meta property="og:updated_time" content="2017-05-20T12:24:41.310Z">
+<meta property="og:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
+<meta property="og:updated_time" content="2017-05-20T12:28:01.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git多账号配置">
-<meta name="twitter:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填cd C:\Users\xx\.sshssh-keygen -t rsa -C xxx@xxx.com
- 2. 同样的方式生产gerrit服务器的私钥公钥">
+<meta name="twitter:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
 
 
 
@@ -371,8 +368,8 @@
       
 
       
-        <a id="more"></a>
-<p><strong> 1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）</strong><br>执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填<br><code>cd C:\Users\xx\.ssh</code><br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
+        <p><strong> 1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）</strong><br><a id="more"></a></p>
+<p>执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填<br><code>cd C:\Users\xx\.ssh</code><br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
 <p><strong> 2. 同样的方式生产gerrit服务器的私钥公钥（邮箱地址可以相同可以不同）</strong><br>执行命令ssh-keygen -t rsa -C email，创建github对应的sshkey，命名为id_rsa_gerrit。<br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
 <p><strong> 3. 把github对应的公钥和gerrit对应的公钥上传到服务器</strong><br>略</p>
 <p><strong> 4. 在.ssh目录创建config文本文件并完成相关配置</strong><br>每个账号单独配置一个<strong>Host</strong>，每个Host要取一个别名，每个Host主要配置HostName和IdentityFile两个属性即可。</p>
