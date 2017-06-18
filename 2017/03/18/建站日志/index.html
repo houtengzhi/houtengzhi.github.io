@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="Hexo,GitPage," />
 
 
 
@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
+<meta name="description" content="2017-06-18 接入网易云跟贴设置方法可见 http://blog.csdn.net/yingpaixiaochuan/article/details/68954103；
+可能出现的问题：1.网易云跟帖设置站点信息时，站点网址只能识别一级域名，类似xxx.github.io无法识别，需要申请一级域名。2.设置完域名解析后，部分浏览器可能无法访问，清除一下缓存即可。
+2017-03-18 新的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git多账号配置">
-<meta property="og:url" content="http://yoursite.com/2017/05/20/Git多账号配置/index.html">
+<meta property="og:title" content="建站日志">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/建站日志/index.html">
 <meta property="og:site_name" content="YECHY'S BLOG">
-<meta property="og:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
-<meta property="og:updated_time" content="2017-05-20T12:28:01.278Z">
+<meta property="og:description" content="2017-06-18 接入网易云跟贴设置方法可见 http://blog.csdn.net/yingpaixiaochuan/article/details/68954103；
+可能出现的问题：1.网易云跟帖设置站点信息时，站点网址只能识别一级域名，类似xxx.github.io无法识别，需要申请一级域名。2.设置完域名解析后，部分浏览器可能无法访问，清除一下缓存即可。
+2017-03-18 新的">
+<meta property="og:updated_time" content="2017-06-18T08:59:53.785Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git多账号配置">
-<meta name="twitter:description" content="1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）">
+<meta name="twitter:title" content="建站日志">
+<meta name="twitter:description" content="2017-06-18 接入网易云跟贴设置方法可见 http://blog.csdn.net/yingpaixiaochuan/article/details/68954103；
+可能出现的问题：1.网易云跟帖设置站点信息时，站点网址只能识别一级域名，类似xxx.github.io无法识别，需要申请一级域名。2.设置完域名解析后，部分浏览器可能无法访问，清除一下缓存即可。
+2017-03-18 新的">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/20/Git多账号配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/18/建站日志/"/>
 
 
 
 
 
-  <title> Git多账号配置 | YECHY'S BLOG </title>
+  <title> 建站日志 | YECHY'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/Git多账号配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/建站日志/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yechy">
@@ -290,7 +296,7 @@
             
             
               
-                Git多账号配置
+                建站日志
               
             
           </h1>
@@ -305,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T20:20:22+08:00">
-                2017-05-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T16:57:00+08:00">
+                2017-03-18
               </time>
             
 
@@ -328,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Tool</span>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
                   </a>
                 </span>
 
@@ -340,6 +346,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/03/18/建站日志/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -368,15 +384,16 @@
       
 
       
-        <p><strong> 1. 生成github.com对应的私钥公钥（本文中文件地址C:\Users\yechy\）</strong><br><a id="more"></a></p>
-<p>执行命令 ssh-keygen -t rsa -C email地址，创建github对应的sshkey，命名为id_rsa_github，密码可以不填<br><code>cd C:\Users\xx\.ssh</code><br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
-<p><strong> 2. 同样的方式生产gerrit服务器的私钥公钥（邮箱地址可以相同可以不同）</strong><br>执行命令ssh-keygen -t rsa -C email，创建github对应的sshkey，命名为id_rsa_gerrit。<br><code>ssh-keygen -t rsa -C xxx@xxx.com</code></p>
-<p><strong> 3. 把github对应的公钥和gerrit对应的公钥上传到服务器</strong><br>略</p>
-<p><strong> 4. 在.ssh目录创建config文本文件并完成相关配置</strong><br>每个账号单独配置一个<strong>Host</strong>，每个Host要取一个别名，每个Host主要配置HostName和IdentityFile两个属性即可。</p>
-<p>Host的名字可以取为自己喜欢的名字，不过这个会影响git相关命令，例如：<br>Host mygithub 这样定义的话，命令如下，即git@后面紧跟的名字改为mygithub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@mygithub:xx/xxx.git</div></pre></td></tr></table></figure></p>
-<p>HostName 　　　　　　　   这个是真实的域名地址<br>IdentityFile 　　　　　　　  这里是id_rsa的地址<br>PreferredAuthentications   配置登录时用什么权限认证–可设为publickey,password<br>publickey,keyboard-interactive等<br>User 　　　　　　　　　　　配置使用用户名</p>
-<p>config文件配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#配置github.com</span></div><div class="line">Host github.com</div><div class="line">HostName github.com</div><div class="line">IdentityFile C:\\Users\\xx\\.ssh\\id_rsa_github</div><div class="line">User xx</div><div class="line"></div><div class="line"><span class="comment">#配置gerrit</span></div><div class="line">Host gerrit</div><div class="line">HostName 192.168.0.102</div><div class="line">IdentityFile C:\\Users\\xx\\.ssh\\id_rsa</div><div class="line">User yy</div><div class="line">KexAlgorithms +diffie-hellman-group1-sha1</div></pre></td></tr></table></figure></p>
-<p><strong> 5. 打开cmder客户端执行测试命令测试是否配置成功（会自动在.ssh目录生成known_hosts文件把私钥配置进去）</strong><br><code>ssh -T git@github.com</code></p>
+        <h2 id="2017-06-18-接入网易云跟贴"><a href="#2017-06-18-接入网易云跟贴" class="headerlink" title="2017-06-18 接入网易云跟贴"></a>2017-06-18 接入网易云跟贴</h2><p>设置方法可见 <a href="http://blog.csdn.net/yingpaixiaochuan/article/details/68954103；" target="_blank" rel="external">http://blog.csdn.net/yingpaixiaochuan/article/details/68954103；</a></p>
+<p>可能出现的问题：<br>1.网易云跟帖设置站点信息时，站点网址只能识别一级域名，类似xxx.github.io无法识别，需要申请一级域名。<br>2.设置完域名解析后，部分浏览器可能无法访问，清除一下缓存即可。</p>
+<h2 id="2017-03-18-新的启程"><a href="#2017-03-18-新的启程" class="headerlink" title="2017-03-18 新的启程"></a>2017-03-18 新的启程</h2><h4 id="1-Create-a-new-post"><a href="#1-Create-a-new-post" class="headerlink" title="1. Create a new post"></a>1. Create a new post</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h4 id="2-Run-server"><a href="#2-Run-server" class="headerlink" title="2. Run server"></a>2. Run server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h4 id="3-Generate-static-files"><a href="#3-Generate-static-files" class="headerlink" title="3. Generate static files"></a>3. Generate static files</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h4 id="4-Deploy-to-remote-sites"><a href="#4-Deploy-to-remote-sites" class="headerlink" title="4. Deploy to remote sites"></a>4. Deploy to remote sites</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
@@ -406,7 +423,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/GitPage/" rel="tag"># GitPage</a>
           
         </div>
       
@@ -419,15 +438,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/20/Rxjava使用/" rel="next" title="Rxjava使用">
-                <i class="fa fa-chevron-left"></i> Rxjava使用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/21/Android多线程用法/" rel="prev" title="Android多线程用法">
+                Android多线程用法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -453,6 +472,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
   </div>
 
 
@@ -474,8 +495,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -548,6 +578,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-06-18-接入网易云跟贴"><span class="nav-number">1.</span> <span class="nav-text">2017-06-18 接入网易云跟贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-03-18-新的启程"><span class="nav-number">2.</span> <span class="nav-text">2017-03-18 新的启程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Create-a-new-post"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. Create a new post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Run-server"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Run server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Generate-static-files"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Deploy-to-remote-sites"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. Deploy to remote sites</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -704,18 +750,21 @@
 
 
   
-
-
-
-
-
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "513883ad37894937bc1601c7df5fa84d",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
 
 
 
 
-
-  
 
 
 
